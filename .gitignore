@@ -4,3 +4,7 @@ npm-debug.log
 
 # Components are handled by Bower
 components/
+
+# Assets are compiled by Grunt
+assets/js/
+assets/css/
