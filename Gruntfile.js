@@ -1,13 +1,15 @@
 module.exports = function(grunt) {
 
   // Paths
-  var src = 'src/js/';
-  var dist = 'assets/js/';
-  var cmp = 'components/';
+  var js_src     = 'src/js/';
+  var js_dest    = 'assets/js/';
+  var less_src   = 'src/less/';
+  var cmp_src    = 'components/';
 
   // Load plugins
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-concat');
+  grunt.loadNpmTasks('grunt-contrib-less');
   grunt.loadNpmTasks('grunt-contrib-watch');
 
   // Init Grunt
@@ -18,13 +20,13 @@ module.exports = function(grunt) {
 
     // Concat task
     concat: {
-      dist: {
-        src: [cmp+'jquery/jquery.js', src+'main.js'],
-        dest: dist+'main.js'
+      main: {
+        src: [cmp_src+'jquery/jquery.js', js_src+'main.js'],
+        dest: js_dest+'main.js'
       },
       modernizr: {
-        src: [cmp+'modernizr/modernizr.js'],
-        dest: dist+'modernizr.js'
+        src: [cmp_src+'modernizr/modernizr.js'],
+        dest: js_dest+'modernizr.js'
       }
     },
 
@@ -38,8 +40,8 @@ module.exports = function(grunt) {
                   ' * Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author %>' +
                   ' <%= pkg.license %> */\n'
         },
-        src: dist+'main.js',
-        dest: dist+'main.min.js'
+        src: js_dest+'main.js',
+        dest: js_dest+'main.min.js'
       },
       modernizr: {
         options: {
@@ -51,14 +53,32 @@ module.exports = function(grunt) {
                   ' * Available under the BSD and MIT licenses: www.modernizr.com/license/' +
                   ' */\n'
         },
-        src: cmp+'modernizr/modernizr.js',
-        dest: dist+'modernizr.min.js'
+        src: cmp_src+'modernizr/modernizr.js',
+        dest: js_dest+'modernizr.min.js'
       }
+    },
+
+    // LESS task
+    less: {
+        files: [less_src+'*.less', less_src+'*/*.less'],
+        compile: {
+            files: {
+                "assets/css/main.css" : 'src/less/main.less'
+            }
+        },
+        compress: {
+            options: {
+                yuicompress: true
+            },
+            files: {
+                "assets/css/main.min.css" : less_src+'main.less'
+            }
+        }
     },
 
     // Watch task
     watch: {
-      files: [src+'*.js'],
+      files: [js_src+'*.js', less_src+'*.less'],
       tasks: ['default'],
       options: {
         nospawn: true
@@ -67,6 +87,6 @@ module.exports = function(grunt) {
   });
 
   // Default task
-  grunt.registerTask('default', ['concat']);
-  grunt.registerTask('dist', ['default', 'uglify']);
+  grunt.registerTask('default', ['concat', 'less:compile']);
+  grunt.registerTask('dist', ['default', 'uglify', 'less:compress']);
 };
