@@ -11,6 +11,7 @@
   "readmeFilename": "README.md",
   "gitHead": "839afcfa23c36a1d4a4883640ce083d67a3501a7",
   "devDependencies": {
+    "bower": "",
     "grunt": "~0.4.0",
     "grunt-contrib": "~0.5.0",
     "grunt-contrib-concat": "~0.1.3",
