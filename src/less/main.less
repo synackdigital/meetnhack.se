@@ -20,11 +20,34 @@
 /*
  * Typography
  */
+body {
+  line-height: 2 * @rhythmUnit;
+}
 h1 {
   .xLargeFont();
+
+  /* Line up with vertical rhythm */
+  margin-top: 2 * @rhythmUnit;
+  margin-bottom: @rhythmUnit;
+  padding-top: .7 * @rhythmUnit;
+  padding-bottom: .3 * @rhythmUnit;
 }
 h2 {
   .largeFont();
+
+  /* Line up with vertical rhythm */
+  margin-top: @rhythmUnit;
+  margin-bottom: @rhythmUnit;
+  padding-top: .7 * @rhythmUnit;
+  padding-bottom: .3 * @rhythmUnit;
+}
+p,
+ul {
+  /* Line up with vertical rhythm */
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: .5 * @rhythmUnit;
+  padding-bottom: .5 * @rhythmUnit;
 }
 small {
   .smallFont();
