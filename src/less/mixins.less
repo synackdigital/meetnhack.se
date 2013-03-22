@@ -15,6 +15,17 @@
 }
 
 /*
+ * Shift with rhythm
+ * Use this to line up with the typographic rhythm
+ */
+.rhythmShift(@mt: 1, @mb: 1, @pt: 1, @pb: 1) {
+  margin-top: @mt * @rhythmUnit;
+  margin-bottom: @mb * @rhythmUnit;
+  padding-top: @pt * @rhythmUnit;
+  padding-bottom: @pb * @rhythmUnit;
+}
+
+/*
  * Image replacement
  */
 .ir() {

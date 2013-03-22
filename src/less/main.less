@@ -25,29 +25,15 @@ body {
 }
 h1 {
   .xLargeFont();
-
-  /* Line up with vertical rhythm */
-  margin-top: 2 * @rhythmUnit;
-  margin-bottom: @rhythmUnit;
-  padding-top: .7 * @rhythmUnit;
-  padding-bottom: .3 * @rhythmUnit;
+  .rhythmShift(2, 1, .7, .3);
 }
 h2 {
   .largeFont();
-
-  /* Line up with vertical rhythm */
-  margin-top: @rhythmUnit;
-  margin-bottom: @rhythmUnit;
-  padding-top: .7 * @rhythmUnit;
-  padding-bottom: .3 * @rhythmUnit;
+  .rhythmShift(1, 1, .7, .3);
 }
 p,
 ul {
-  /* Line up with vertical rhythm */
-  margin-top: 0;
-  margin-bottom: 0;
-  padding-top: .5 * @rhythmUnit;
-  padding-bottom: .5 * @rhythmUnit;
+  .rhythmShift(0, 0, .5, .5);
 }
 small {
   .smallFont();
