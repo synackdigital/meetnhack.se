@@ -203,6 +203,41 @@ header nav {
 }
 
 /*
+ * Portraits
+ */
+.portrait {
+  display: inline-block;
+  padding: .5 * @rhythmUnit;
+  width: 8 * @rhythmUnit;
+
+  .smallFont();
+  text-align: center;
+  vertical-align: text-top;
+
+  img {
+    background: white;
+    .border-radius(4 * @rhythmUnit);
+
+    height: 8 * @rhythmUnit;
+    width: 8 * @rhythmUnit;
+  }
+
+  &.small {
+    width: 5 * @rhythmUnit;
+
+    .microFont();
+
+    img {
+      .border-radius(2.5 * @rhythmUnit);
+
+      height: 5 * @rhythmUnit;
+      width: 5 * @rhythmUnit;
+    }
+  }
+}
+
+
+/*
  * Signature logos
  */
 .sig-erdf {
