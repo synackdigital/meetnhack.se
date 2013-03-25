@@ -40,6 +40,15 @@ small {
 }
 
 /*
+ * Wrapper dimensions
+ */
+#wrapper {
+  max-width: 960px;
+  padding: 0 @rhythmUnit;
+  margin: 0 auto;
+}
+
+/*
  * Logotype
  */
 header h1 {
@@ -65,5 +74,21 @@ header h1 {
       background-image: url('../img/mnhlogo_@2x.png');
       background-size: cover;
     }
+  }
+}
+
+/*
+ * Navigation
+ */
+header nav {
+  background: rgba(0,255,0,.1);
+  position: fixed;
+  top: 5 * @rhythmUnit;
+  right: 2 * @rhythmUnit;
+
+  text-align: right;
+
+  ul {
+    .unstyled-list();
   }
 }
