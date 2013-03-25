@@ -46,7 +46,7 @@ small {
  */
 #wrapper {
   max-width: 960px;
-  padding: (8 * @rhythmUnit) @rhythmUnit;
+  padding: (12 * @rhythmUnit) @rhythmUnit;
   margin: 0 auto;
 }
 
@@ -54,8 +54,15 @@ small {
  * Header container
  */
 header {
-  background: url('../img/issie_herrutter.jpg') bottom center no-repeat;
-  height: 48 * @rhythmUnit;
+  background: url('../img/issie_herrutter.jpg') bottom right no-repeat;
+  background-size: contain;
+  height: 40 * @rhythmUnit;
+
+  /* Shift titles upward to leave space for Mr. Otter */
+  hgroup {
+    position: relative;
+    top: -4 * @rhythmUnit;
+  }
 }
 
 /*
@@ -85,6 +92,13 @@ header h1 {
       background-size: cover;
     }
   }
+}
+
+/*
+ * Tagline
+ */
+header h2 {
+  .baseFont();
 }
 
 /*
