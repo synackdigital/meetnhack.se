@@ -14,7 +14,7 @@
 // Debug styles
 // Uncomment when needed
 // -------------------------
-@import "debug";
+// @import "debug";
 
 
 /*
@@ -44,8 +44,16 @@ small {
  */
 #wrapper {
   max-width: 960px;
-  padding: 0 @rhythmUnit;
+  padding: (8 * @rhythmUnit) @rhythmUnit;
   margin: 0 auto;
+}
+
+/*
+ * Header container
+ */
+header {
+  background: url('../img/issie_herrutter.jpg') bottom center no-repeat;
+  height: 48 * @rhythmUnit;
 }
 
 /*
@@ -81,14 +89,46 @@ header h1 {
  * Navigation
  */
 header nav {
-  background: rgba(0,255,0,.1);
+  color: darken(@lineColor, 50%);
+  background-color: @lineColor;
+  .box-shadow(~"inset 0 -1px 2px rgba(0,0,0,.05)");
+
+  /* Layout */
   position: fixed;
-  top: 5 * @rhythmUnit;
-  right: 2 * @rhythmUnit;
-
-  text-align: right;
-
+  top: 0;
+  right: 0;
+  left: 0;
+  padding: @rhythmUnit;
   ul {
-    .unstyled-list();
+    .inline-list();
+    text-align: center;
+
+    /* Enlarge hit area on links */
+    li a {
+      padding: @rhythmUnit;
+    }
+
+    /* Separators */
+    li:before {
+      color: darken(@lineColor, 15%);
+      content: '|';
+    }
+    li:first-child:before {
+      content: none;
+    }
+  }
+
+  /* Typography */
+  .smallFont();
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  a {
+    color: darken(@lineColor, 50%);
+    text-decoration: none;
+
+    &:focus,
+    &:hover {
+      color: @textColor;
+    }
   }
 }
