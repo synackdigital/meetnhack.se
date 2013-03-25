@@ -68,6 +68,13 @@ img {
 }
 
 /*
+ * Clear floats in sections
+ */
+section {
+  .clearfix();
+}
+
+/*
  * Enabled positioning inside header
  */
 header {
@@ -179,6 +186,40 @@ header nav {
     &:focus,
     &:hover {
       color: @backgroundColor;
+    }
+  }
+}
+
+/*
+ * Float illustrations
+ */
+.illustration {
+  float: right;
+
+  /* Alternate layout for some sections */
+  #hack & {
+    float: left;
+  }
+}
+
+/*
+ * Signature logos
+ */
+.sig-erdf {
+  display: inline-block;
+
+  /* Hide text */
+  .ir();
+
+  /* Set bg image */
+  background-image: url('../img/erdflogo.png');
+  width: 304px;
+  height: 155px;
+
+  /* High density image */
+  @media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
+    html.backgroundsize & {
+      background-image: url('../img/erdflogo_@2x.png');
     }
   }
 }

@@ -1,4 +1,19 @@
 /*
+ * Clearfixin' like a baws
+ */
+.clearfix() {
+  &:before,
+  &:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+  }
+
+  &:after {
+    clear: both;
+  }
+}
+
+/*
  * Typographic mixins
  */
 .smallFont(@line-height: 2 * @rhythmUnit) {
