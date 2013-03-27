@@ -23,7 +23,12 @@
 body {
   background-color: @backgroundColor;
   color: @textColor;
+
+  font-family: @baseFontStack;
   line-height: 2 * @rhythmUnit;
+}
+h1, h2, h3 {
+  font-family: @altFontStack;
 }
 h1 {
   .xLargeFont();
