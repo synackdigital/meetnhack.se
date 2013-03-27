@@ -283,18 +283,39 @@ dl.program {
   background-image: url('../img/logo-se.png');
   width: 76px;
   height: 33px;
+
+  /* High density image */
+  @media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
+    html.backgroundsize & {
+      background-image: url('../img/logo-se_@2x.png');
+    }
+  }
 }
 .logo-opendai {
   /* Set bg image */
   background-image: url('../img/logo-opendai.png');
   width: 56px;
   height: 44px;
+
+  /* High density image */
+  @media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
+    html.backgroundsize & {
+      background-image: url('../img/logo-opendai_@2x.png');
+    }
+  }
 }
 .logo-shk {
   /* Set bg image */
   background-image: url('../img/logo-shk.png');
-  width: 193px;
+  width: 195px;
   height: 44px;
+
+  /* High density image */
+  @media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
+    html.backgroundsize & {
+      background-image: url('../img/logo-shk_@2x.png');
+    }
+  }
 }
 .logo-foocafe {
   /* Set bg image */
