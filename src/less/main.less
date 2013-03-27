@@ -254,16 +254,18 @@ header nav {
 }
 
 dl.program {
+  .dl-horizontal(8 * @rhythmUnit);
+
   dt {
-    margin-top: @rhythmUnit;
-    time {
-      display: inline-block;
-      width: 4em;
-      font-weight: bold;
-    }
+    text-align: left;
   }
-  dd {
-    margin-left: 4em;
+  dd, dt {
+    padding-bottom: @rhythmUnit;
+  }
+
+  time {
+    display: inline-block;
+    font-weight: bold;
   }
 }
 
