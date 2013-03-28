@@ -4,6 +4,8 @@
   "dependencies": {
     "jquery": "~1.9.1",
     "modernizr": "~2.6.2",
-    "lesshat": "~1.1.1"
+    "lesshat": "~1.1.1",
+    "jquery.scrollTo": "~1.4.4",
+    "jquery.localScroll": "git://github.com/flesler/jquery.localScroll.git"
   }
 }
