@@ -6,6 +6,6 @@
     "modernizr": "~2.6.2",
     "lesshat": "~1.1.1",
     "jquery.scrollTo": "~1.4.4",
-    "jquery.localScroll": "git://github.com/flesler/jquery.localScroll.git"
+    "jquery.localScroll": "latest"
   }
 }
