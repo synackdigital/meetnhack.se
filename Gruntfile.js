@@ -21,7 +21,7 @@ module.exports = function(grunt) {
     // Concat task
     concat: {
       main: {
-        src: [cmp_src+'jquery/jquery.js', js_src+'main.js'],
+        src: [cmp_src+'jquery/jquery.js', cmp_src+'jquery.scrollTo/jquery.scrollTo.js', cmp_src+'jquery.localScroll/jquery.localScroll.js', js_src+'main.js'],
         dest: js_dest+'main.js'
       },
       modernizr: {
