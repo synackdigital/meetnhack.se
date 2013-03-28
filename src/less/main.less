@@ -24,8 +24,7 @@ body {
   background-color: @backgroundColor;
   color: @textColor;
 
-  font-family: @baseFontStack;
-  line-height: 2 * @rhythmUnit;
+  .baseFont();
 }
 h1, h2, h3 {
   font-family: @altFontStack;
@@ -39,9 +38,11 @@ h2 {
   .rhythmShift(1, 1, .7, .3);
 }
 h3,
-h4,
-p,
-ul {
+h4 {
+  .baseFont();
+  .rhythmShift(0, 0, .5, .5);
+}
+p {
   .rhythmShift(0, 0, .5, .5);
 }
 small {
@@ -50,6 +51,7 @@ small {
 hgroup h1 + h2,
 hgroup h2 + h3,
 hgroup h3 + h4 {
+  margin-top: -@rhythmUnitFallback; // non-rem fallback
   margin-top: -@rhythmUnit;
 }
 .textblock {
@@ -59,6 +61,13 @@ hgroup h3 + h4 {
   }
   @media screen and (min-width: 900px) {
     .columns(3);
+  }
+
+  /* Rhythm align paragraphs */
+  padding-top: (.5 * @rhythmUnitFallback); // non-rem fallback
+  padding-top: (.5 * @rhythmUnit);
+  p {
+    .rhythmShift(0, 0, 0, 0);
   }
 }
 
@@ -84,6 +93,7 @@ nav {
  */
 #wrapper {
   max-width: 1002px;
+  padding: (8 * @rhythmUnitFallback) @rhythmUnitFallback; // non-rem fallback
   padding: (8 * @rhythmUnit) @rhythmUnit;
   margin: 0 auto;
 }
@@ -145,6 +155,7 @@ header h2 {
 header .arrangedby {
   h2 {
     padding: 0;
+    margin-bottom: @rhythmUnitFallback; // non-rem fallback
     margin-bottom: @rhythmUnit;
     .microFont();
     font-weight: normal;
@@ -155,7 +166,9 @@ header .arrangedby {
   ul {
     .inline-list();
     li {
+      margin-right: @rhythmUnitFallback; // non-rem fallback
       margin-right: @rhythmUnit;
+      margin-bottom: @rhythmUnitFallback; // non-rem fallback
       margin-bottom: @rhythmUnit;
     }
   }
@@ -182,13 +195,13 @@ header nav {
   top: 0;
   right: 0;
   left: 0;
-  padding: @rhythmUnit;
   ul {
     .inline-list();
     text-align: center;
 
     /* Enlarge hit area on links */
     li a {
+      padding: @rhythmUnitFallback; // non-rem fallback
       padding: @rhythmUnit;
     }
 
@@ -204,6 +217,7 @@ header nav {
 
   /* Typography */
   .smallFont();
+  font-family: @altFontStack;
   font-weight: bold;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -223,6 +237,7 @@ header nav {
  */
 .illustration {
   float: right;
+  margin-top: 6 * @rhythmUnitFallback; // non-rem fallback
   margin-top: 6 * @rhythmUnit;
   width: 50%;
 
@@ -269,6 +284,7 @@ header nav {
   background: url('../img/issie-brush1.jpg') center no-repeat;
   background-size: cover;
 
+  margin: (6 * @rhythmUnitFallback) auto; // non-rem fallback
   margin: (6 * @rhythmUnit) auto;
   width: 600px;
   height: 80px;
@@ -291,7 +307,9 @@ header nav {
  */
 .portrait {
   display: inline-block;
+  padding: .5 * @rhythmUnitFallback; // non-rem fallback
   padding: .5 * @rhythmUnit;
+  width: 8 * @rhythmUnitFallback; // non-rem fallback
   width: 8 * @rhythmUnit;
 
   .smallFont();
@@ -300,21 +318,28 @@ header nav {
 
   img {
     background: white;
+    .border-radius(4 * @rhythmUnitFallback); // non-rem fallback
     .border-radius(4 * @rhythmUnit);
 
+    height: 8 * @rhythmUnitFallback; // non-rem fallback
     height: 8 * @rhythmUnit;
+    width: 8 * @rhythmUnitFallback; // non-rem fallback
     width: 8 * @rhythmUnit;
   }
 
   &.small {
+    width: 5 * @rhythmUnitFallback; // non-rem fallback
     width: 5 * @rhythmUnit;
 
     .microFont();
 
     img {
+      .border-radius(2.5 * @rhythmUnitFallback); // non-rem fallback
       .border-radius(2.5 * @rhythmUnit);
 
+      height: 5 * @rhythmUnitFallback; // non-rem fallback
       height: 5 * @rhythmUnit;
+      width: 5 * @rhythmUnitFallback; // non-rem fallback
       width: 5 * @rhythmUnit;
     }
   }
@@ -324,11 +349,13 @@ header nav {
  * Schedule-type description list
  */
 dl.schedule {
-  .dl-horizontal(6 * @rhythmUnit);
+  .dl-horizontal(6);
 
   dt {
     text-align: left;
+    padding-top: @rhythmUnitFallback; // non-rem fallback
     padding-top: @rhythmUnit;
+    padding-bottom: @rhythmUnitFallback; // non-rem fallback
     padding-bottom: @rhythmUnit;
   }
 
@@ -336,9 +363,12 @@ dl.schedule {
     // background-color: desaturate(darken(@backgroundColor, 5%), 50%);
     background: white url('../img/linedpaper.png') bottom right;
     border: 1px solid white;
+    .border-radius(.5 * @rhythmUnitFallback); // non-rem fallback
     .border-radius(.5 * @rhythmUnit);
     .box-shadow(~"inset 0 1px 3px rgba(0,0,0,.2)");
+    padding: @rhythmUnitFallback; // non-rem fallback
     padding: @rhythmUnit;
+    margin-bottom: @rhythmUnitFallback; // non-rem fallback
     margin-bottom: @rhythmUnit;
 
     /* High density image */
@@ -359,6 +389,7 @@ dl.schedule {
  * Align schedule heads with dd
  */
 .schedule-head {
+  padding-left: 6 * @rhythmUnitFallback; // none-rem fallback
   padding-left: 6 * @rhythmUnit;
 }
 

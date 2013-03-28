@@ -23,25 +23,35 @@
 /*
  * Typographic mixins
  */
-.microFont(@line-height: @rhythmUnit) {
+.microFont(@line-height: 1) {
+  font-size: @microFontFallback; // non-rem fallback
   font-size: @microFont;
-  line-height: @line-height;
+  line-height: @line-height * @rhythmUnitFallback;  // non-rem fallback
+  line-height: @line-height * @rhythmUnit;
 }
-.smallFont(@line-height: 2 * @rhythmUnit) {
- font-size: @smallFont;
- line-height: @line-height;
+.smallFont(@line-height: 2) {
+  font-size: @smallFontFallback; // non-rem fallback
+  font-size: @smallFont;
+  line-height: @line-height * @rhythmUnitFallback;  // non-rem fallback
+  line-height: @line-height * @rhythmUnit;
 }
-.baseFont(@line-height: 2 * @rhythmUnit) {
- font-size: 1rem;
- line-height: @line-height;
+.baseFont(@line-height: 2) {
+  font-size: 100%; // non-rem fallback
+  font-size: 1rem;
+  line-height: @line-height * @rhythmUnitFallback;  // non-rem fallback
+  line-height: @line-height * @rhythmUnit;
 }
-.largeFont(@line-height: 3 * @rhythmUnit) {
- font-size: @largeFont;
- line-height: @line-height;
+.largeFont(@line-height: 3) {
+  font-size: @largeFontFallback; // non-rem fallback
+  font-size: @largeFont;
+  line-height: @line-height * @rhythmUnitFallback;  // non-rem fallback
+  line-height: @line-height * @rhythmUnit;
 }
-.xLargeFont(@line-height: 4 * @rhythmUnit) {
+.xLargeFont(@line-height: 4) {
+  font-size: @xLargeFontFallback; // non-rem fallback
   font-size: @xLargeFont;
-  line-height: @line-height;
+  line-height: @line-height * @rhythmUnitFallback;  // non-rem fallback
+  line-height: @line-height * @rhythmUnit;
 }
 
 /*
@@ -116,16 +126,18 @@
 /*
  * Horizontal description lists
  */
-.dl-horizontal(@offset: 8 * @rhythmUnit) {
+.dl-horizontal(@offset: 8) {
   .clearfix(); // Ensure dl clears floats if empty dd elements present
   dt {
     float: left;
-    width: @offset - (2 * @rhythmUnit);
+    width: (@offset * @rhythmUnitFallback) - (2 * @rhythmUnitFallback); // non-rem fallback
+    width: (@offset * @rhythmUnit) - (2 * @rhythmUnit);
     clear: left;
     text-align: right;
     .text-overflow();
   }
   dd {
-    margin-left: @offset;
+    margin-left: @offset * @rhythmUnitFallback; // non-rem fallback
+    margin-left: @offset * @rhythmUnit;
   }
 }
