@@ -45,6 +45,14 @@
 }
 
 /*
+ * Invert the default colors
+ */
+.invertColors() {
+  background-color: lighten(@textColor, 10%);
+  color: @backgroundColor;
+}
+
+/*
  * Shift with rhythm
  * Use this to line up with the typographic rhythm
  */

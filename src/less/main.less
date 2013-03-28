@@ -38,12 +38,19 @@ h2 {
   .largeFont();
   .rhythmShift(1, 1, .7, .3);
 }
+h3,
+h4,
 p,
 ul {
   .rhythmShift(0, 0, .5, .5);
 }
 small {
   .smallFont();
+}
+hgroup h1 + h2,
+hgroup h2 + h3,
+hgroup h3 + h4 {
+  margin-top: -@rhythmUnit;
 }
 .textblock {
   .columns(2);
@@ -167,8 +174,7 @@ header .arrangedby {
  * Navigation
  */
 header nav {
-  color: @backgroundColor;
-  background-color: lighten(@textColor, 10%);
+  .invertColors();
   border-bottom: 1px solid white;
 
   /* Layout */
@@ -213,15 +219,71 @@ header nav {
 }
 
 /*
- * Float illustrations
+ * Float artwork inside main sections
  */
 .illustration {
   float: right;
+  margin-top: 6 * @rhythmUnit;
+  width: 50%;
 
-  /* Alternate layout for some sections */
+  @media screen and (max-width: 600px) {
+    float: none !important;
+    margin-top: 0;
+    width: auto;
+  }
+
+  /* Alternate layout for hack section */
   #hack & {
     float: left;
   }
+}
+
+/*
+ * Float content inside main sections
+ */
+#meet,
+#hack {
+  .clearfix();
+
+  .content {
+    float: left;
+    width: 50%;
+
+    @media screen and (max-width: 600px) {
+      float: none !important;
+      width: auto;
+    }
+
+    /* Alternate layout for hack section */
+    #hack & {
+      float: right;
+    }
+  }
+}
+
+/*
+ * Fancy main section headers
+ */
+#meet hgroup,
+#hack hgroup {
+  background: url('../img/issie-brush1.jpg') center no-repeat;
+  background-size: cover;
+
+  margin: (6 * @rhythmUnit) auto;
+  width: 600px;
+  height: 80px;
+
+  text-align: center;
+  text-transform: uppercase;
+
+  h2 + h3 {
+    html.rgba & {
+      color: fade(@textColor, 60%);
+    }
+  }
+}
+#hack hgroup {
+  background-image: url('../img/issie-brush2.jpg');
 }
 
 /*
@@ -266,15 +328,38 @@ dl.schedule {
 
   dt {
     text-align: left;
-  }
-  dd, dt {
+    padding-top: @rhythmUnit;
     padding-bottom: @rhythmUnit;
+  }
+
+  dd {
+    // background-color: desaturate(darken(@backgroundColor, 5%), 50%);
+    background: white url('../img/linedpaper.png') bottom right;
+    border: 1px solid white;
+    .border-radius(.5 * @rhythmUnit);
+    .box-shadow(~"inset 0 1px 3px rgba(0,0,0,.2)");
+    padding: @rhythmUnit;
+    margin-bottom: @rhythmUnit;
+
+    /* High density image */
+    @media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
+      html.backgroundsize & {
+        background-image: url('../img/linedpaper_@2x.png');
+      }
+    }
   }
 
   time {
     display: inline-block;
     font-weight: bold;
   }
+}
+
+/*
+ * Align schedule heads with dd
+ */
+.schedule-head {
+  padding-left: 6 * @rhythmUnit;
 }
 
 /*
@@ -334,7 +419,6 @@ dl.schedule {
   height: 44px;
 }
 .logo-erdf {
-
   /* Set bg image */
   background-image: url('../img/logo-erdf.png');
   width: 304px;
