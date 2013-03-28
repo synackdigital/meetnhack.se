@@ -1,0 +1,12 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+# TEAM
+
+    Fredrik Broman -- Designer and developer -- @frebro
+    Cecilia Heikkilä -- Illustrator
+
+# TECHNOLOGY COLOPHON
+
+    HTML5, CSS3, Normalize, LESS, LESShat, Semantic.gs
+    Normalize.css, jQuery, jQuery.localScroll, jQuery.scrollTo, Modernizr
