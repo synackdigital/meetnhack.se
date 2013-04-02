@@ -6,9 +6,11 @@ module.exports = function(grunt) {
   var css_src    = 'src/less/';
   var css_dest   = 'assets/css/';
   var cmp_src    = 'components/';
+  var img_dest   = 'assets/img/';
 
   // Load plugins
   grunt.loadNpmTasks('grunt-contrib-copy');
+  grunt.loadNpmTasks('grunt-string-replace');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-less');
@@ -31,8 +33,30 @@ module.exports = function(grunt) {
           {
             src: cmp_src+'tipsy/src/stylesheets/tipsy.css',
             dest: css_src+'tipsy.less'
+          },
+          {
+            expand: true,
+            cwd: cmp_src+'tipsy/src/images/',
+            src: 'tipsy.gif',
+            dest: img_dest
           }
         ]
+      }
+    },
+
+    'string-replace': {
+      main: {
+        files: {
+          'src/less/tipsy.less': 'src/less/tipsy.less'
+        },
+        options: {
+          replacements: [
+            {
+              pattern: 'images/',
+              replacement: 'img/'
+            }
+          ]
+        }
       }
     },
 
@@ -111,6 +135,6 @@ module.exports = function(grunt) {
   });
 
   // Default task
-  grunt.registerTask('default', ['copy', 'concat', 'less:compile']);
+  grunt.registerTask('default', ['copy', 'string-replace', 'concat', 'less:compile']);
   grunt.registerTask('dist', ['default', 'less:compress', 'uglify']);
 };
