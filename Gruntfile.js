@@ -3,10 +3,12 @@ module.exports = function(grunt) {
   // Paths
   var js_src     = 'src/js/';
   var js_dest    = 'assets/js/';
-  var less_src   = 'src/less/';
+  var css_src    = 'src/less/';
+  var css_dest   = 'assets/css/';
   var cmp_src    = 'components/';
 
   // Load plugins
+  grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-less');
@@ -18,10 +20,32 @@ module.exports = function(grunt) {
     // Package info
     pkg: grunt.file.readJSON('package.json'),
 
+    // Copy files
+    copy: {
+      main: {
+        files: [
+          {
+            src: cmp_src+'lesshat/lesshat.less',
+            dest: css_src+'lesshat.less'
+          },
+          {
+            src: cmp_src+'tipsy/src/stylesheets/tipsy.css',
+            dest: css_src+'tipsy.less'
+          }
+        ]
+      }
+    },
+
     // Concat task
     concat: {
       main: {
-        src: [cmp_src+'jquery/jquery.js', cmp_src+'jquery.scrollTo/jquery.scrollTo.js', cmp_src+'jquery.localScroll/jquery.localScroll.js', js_src+'main.js'],
+        src: [
+          cmp_src+'jquery/jquery.js',
+          cmp_src+'jquery.scrollTo/jquery.scrollTo.js',
+          cmp_src+'jquery.localScroll/jquery.localScroll.js',
+          cmp_src+'tipsy/src/javascripts/jquery.tipsy.js',
+          js_src+'main.js'
+        ],
         dest: js_dest+'main.js'
       },
       modernizr: {
@@ -60,7 +84,7 @@ module.exports = function(grunt) {
 
     // LESS task
     less: {
-        files: [less_src+'*.less', less_src+'*/*.less'],
+        files: [css_src+'*.less', css_src+'*/*.less'],
         compile: {
             files: {
                 "assets/css/main.css" : 'src/less/main.less'
@@ -71,14 +95,14 @@ module.exports = function(grunt) {
                 yuicompress: true
             },
             files: {
-                "assets/css/main.min.css" : less_src+'main.less'
+                "assets/css/main.min.css" : css_src+'main.less'
             }
         }
     },
 
     // Watch task
     watch: {
-      files: [js_src+'*.js', less_src+'*.less'],
+      files: [js_src+'*.js', css_src+'*.less'],
       tasks: ['default'],
       options: {
         nospawn: true
@@ -87,6 +111,6 @@ module.exports = function(grunt) {
   });
 
   // Default task
-  grunt.registerTask('default', ['concat', 'less:compile']);
-  grunt.registerTask('dist', ['default', 'uglify', 'less:compress']);
+  grunt.registerTask('default', ['copy', 'concat', 'less:compile']);
+  grunt.registerTask('dist', ['default', 'less:compress', 'uglify']);
 };
