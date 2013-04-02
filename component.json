@@ -6,6 +6,7 @@
     "modernizr": "~2.6.2",
     "lesshat": "~1.1.1",
     "jquery.scrollTo": "~1.4.4",
-    "jquery.localScroll": "latest"
+    "jquery.localScroll": "latest",
+    "tipsy": "~1.0.0a"
   }
 }
