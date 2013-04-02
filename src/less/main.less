@@ -54,26 +54,11 @@ hgroup h3 + h4 {
   margin-top: -@rhythmUnitFallback; // non-rem fallback
   margin-top: -@rhythmUnit;
 }
-
-/*
- * Longer text blocks as columns
- */
-.textblock {
-  .columns(2);
-  @media screen and (max-width: 500px) {
-    .columns(1);
-  }
-  @media screen and (min-width: 900px) {
-    .columns(3);
-  }
-
-  /* Rhythm align paragraphs */
-  padding-top: (.5 * @rhythmUnitFallback); // non-rem fallback
-  padding-top: (.5 * @rhythmUnit);
-  p {
-    .rhythmShift(0, 0, 0, 0);
-  }
+dd h3,
+dd h4 {
+  .rhythmShift(0, 0, 0, 0);
 }
+
 
 /*
  * Autosize images
@@ -241,8 +226,8 @@ header nav {
  */
 .illustration {
   float: right;
-  margin-top: 6 * @rhythmUnitFallback; // non-rem fallback
-  margin-top: 6 * @rhythmUnit;
+  margin-top: 2 * @rhythmUnitFallback; // non-rem fallback
+  margin-top: 2 * @rhythmUnit;
   width: 50%;
 
   @media screen and (max-width: 600px) {
@@ -254,28 +239,43 @@ header nav {
   /* Alternate layout for hack section */
   #hack & {
     float: left;
+    // margin-top: 2 * @rhythmUnitFallback; // non-rem fallback
+    // margin-top: 2 * @rhythmUnit;
   }
 }
 
 /*
  * Float content inside main sections
  */
-#meet,
-#hack {
+#meet {
   .clearfix();
 
   .content {
+    box-sizing: border-box;
     float: left;
+    padding-right: 2 * @rhythmUnit;
     width: 50%;
 
     @media screen and (max-width: 600px) {
       float: none !important;
+      padding: 0;
       width: auto;
     }
+  }
+}
+#hack {
+  .clearfix();
 
-    /* Alternate layout for hack section */
-    #hack & {
-      float: right;
+  .content {
+    box-sizing: border-box;
+    float: right;
+    padding-left: 2 * @rhythmUnit;
+    width: 50%;
+
+    @media screen and (max-width: 600px) {
+      float: none !important;
+      padding: 0;
+      width: auto;
     }
   }
 }
@@ -367,7 +367,6 @@ dl.schedule {
   dd {
     // background-color: desaturate(darken(@backgroundColor, 5%), 50%);
     background: white url('../img/linedpaper.png') bottom right;
-    border: 1px solid white;
     .border-radius(.5 * @rhythmUnitFallback); // non-rem fallback
     .border-radius(.5 * @rhythmUnit);
     .box-shadow(~"inset 0 1px 3px rgba(0,0,0,.2)");
