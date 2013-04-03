@@ -240,19 +240,24 @@ header nav {
   float: right;
   margin-top: 2 * @rhythmUnitFallback; // non-rem fallback
   margin-top: 2 * @rhythmUnit;
+  margin-right: -2 * @rhythmUnitFallback; // non-rem fallback
+  margin-right: -2 * @rhythmUnit;
   width: 50%;
 
   @media screen and (max-width: 600px) {
     float: none !important;
-    margin-top: 0;
+    margin: 0;
     width: auto;
   }
 
   /* Alternate layout for hack section */
   #hack & {
     float: left;
-    // margin-top: 2 * @rhythmUnitFallback; // non-rem fallback
-    // margin-top: 2 * @rhythmUnit;
+    margin-top: 4 * @rhythmUnitFallback; // non-rem fallback
+    margin-top: 4 * @rhythmUnit;
+    margin-left: -2 * @rhythmUnitFallback; // non-rem fallback
+    margin-left: -2 * @rhythmUnit;
+    margin-right: 0;
   }
 }
 
