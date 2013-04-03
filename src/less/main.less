@@ -413,13 +413,25 @@ dl.schedule {
 }
 
 /*
+ * Footer links
+ */
+footer a {
+  margin-bottom: (2 * @rhythmUnit);
+  margin-right: (3 * @rhythmUnit);
+}
+
+/*
  * Logo image replacements
  */
 .logo-se,
 .logo-opendai,
 .logo-shk,
 .logo-foocafe,
-.logo-erdf  {
+.logo-erdf,
+.logo-regionskane,
+.logo-regionblekinge,
+.logo-medea,
+.logo-parkinn  {
   /* Hide text */
   .ir();
 }
@@ -478,8 +490,8 @@ dl.schedule {
 .logo-erdf {
   /* Set bg image */
   background-image: url('../img/logo-erdf.png');
-  width: 304px;
-  height: 155px;
+  width: 172px;
+  height: 88px;
 
   /* High density image */
   @media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
@@ -487,4 +499,49 @@ dl.schedule {
       background-image: url('../img/logo-erdf_@2x.png');
     }
   }
+}
+.logo-regionskane {
+  /* Set bg image */
+  background-image: url('../img/logo-regionskane.png');
+  width: 94px;
+  height: 88px;
+
+  /* High density image */
+  @media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
+    html.backgroundsize & {
+      background-image: url('../img/logo-regionskane_@2x.png');
+    }
+  }
+}
+.logo-regionblekinge {
+  /* Set bg image */
+  background-image: url('../img/logo-regionblekinge.png');
+  width: 116px;
+  height: 52px;
+
+  /* High density image */
+  @media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
+    html.backgroundsize & {
+      background-image: url('../img/logo-regionblekinge_@2x.png');
+    }
+  }
+}
+.logo-medea {
+  /* Set bg image */
+  background-image: url('../img/logo-medea.png');
+  width: 60px;
+  height: 78px;
+
+  /* High density image */
+  @media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
+    html.backgroundsize & {
+      background-image: url('../img/logo-medea_@2x.png');
+    }
+  }
+}
+.logo-parkinn {
+  /* Set bg image */
+  background-image: url('../img/logo-parkinn.png');
+  width: 150px;
+  height: 70px;
 }
