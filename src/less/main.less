@@ -359,10 +359,6 @@ header nav {
  */
 .portrait {
   display: inline-block;
-  padding: .5 * @rhythmUnitFallback; // non-rem fallback
-  padding: .5 * @rhythmUnit;
-  width: 8 * @rhythmUnitFallback; // non-rem fallback
-  width: 8 * @rhythmUnit;
 
   .smallFont();
   text-align: center;
@@ -377,6 +373,11 @@ header nav {
     height: 8 * @rhythmUnit;
     width: 8 * @rhythmUnitFallback; // non-rem fallback
     width: 8 * @rhythmUnit;
+  }
+
+  .name {
+    display: block;
+    font-weight: bold;
   }
 
   &.small {
@@ -394,6 +395,26 @@ header nav {
       width: 5 * @rhythmUnitFallback; // non-rem fallback
       width: 5 * @rhythmUnit;
     }
+
+    .name {
+      font-weight: normal;
+    }
+  }
+}
+
+/*
+ * Jury duty
+ */
+.jury {
+  @numberOfPeople: 5;
+
+  .unstyled-list();
+
+  li {
+    float: left;
+    width: (100% / @numberOfPeople);
+
+    text-align: center;
   }
 }
 
