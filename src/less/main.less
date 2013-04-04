@@ -409,12 +409,17 @@ header nav {
   @numberOfPeople: 5;
 
   .unstyled-list();
+  text-align: center;
+
+  clear: both;
+
+  h2 {
+    padding-top: (4 * @rhythmUnit);
+  }
 
   li {
     float: left;
     width: (100% / @numberOfPeople);
-
-    text-align: center;
   }
 }
 
