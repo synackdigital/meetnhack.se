@@ -128,18 +128,16 @@ header h1 {
   background-image: url('../img/mnhlogo.png');
 
   /* Position in center */
-  position: absolute;
-  left: 50%;
+  display: block;
   width: 374px;
   height: 132px;
-  margin-left: -187px;
+  margin: 0 auto (2 * @rhythmUnit);
 
   /* Small screens */
-  @media screen and (max-width: 390px) {
-    html.backgroundsize & {
-      width: 280px;
-      height: 99px;
-    }
+  @media screen and (max-width: 400px) {
+    background-size: cover;
+    width: 280px;
+    height: 99px;
   }
 
   /* High density image */
@@ -150,21 +148,6 @@ header h1 {
     }
   }
 
-}
-
-/*
- * Tagline
- */
-header h2 {
-  padding-top: 150px; // make space for logo above
-  margin-bottom: 0;
-
-  /* Push down above illustration */
-  position: relative;
-  top: (2 * @rhythmUnit);
-
-  .baseFont();
-  text-align: center;
 }
 
 /*
