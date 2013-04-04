@@ -267,65 +267,24 @@ header nav {
     float: right;
   }
 
-  // float: right;
-  // margin-top: 2 * @rhythmUnitFallback; // non-rem fallback
-  // margin-top: 2 * @rhythmUnit;
-  // margin-right: -2 * @rhythmUnitFallback; // non-rem fallback
-  // margin-right: -2 * @rhythmUnit;
-  // width: 50%;
-
-  // @media screen and (max-width: 600px) {
-  //   float: none !important;
-  //   margin: 0;
-  //   width: auto;
-  // }
-
-  /* Alternate layout for hack section */
-  // #hack & {
-  //   float: left;
-  //   margin-top: 4 * @rhythmUnitFallback; // non-rem fallback
-  //   margin-top: 4 * @rhythmUnit;
-  //   margin-left: -2 * @rhythmUnitFallback; // non-rem fallback
-  //   margin-left: -2 * @rhythmUnit;
-  //   margin-right: 0;
-  // }
+  @media screen and (max-width: 600px) {
+    .column(12);
+  }
 }
 
 /*
  * Float content inside main sections
  */
-#meet {
-  .clearfix();
-
-  .content {
-    .column(6);
-    // box-sizing: border-box;
-    // float: left;
-    // padding-right: 2 * @rhythmUnit;
-    // width: 50%;
-
-    // @media screen and (max-width: 600px) {
-    //   float: none !important;
-    //   padding: 0;
-    //   width: auto;
-    // }
-  }
-}
+#meet,
 #hack {
   .clearfix();
 
   .content {
     .column(6);
-    // box-sizing: border-box;
-    // float: right;
-    // padding-left: 2 * @rhythmUnit;
-    // width: 50%;
 
-    // @media screen and (max-width: 600px) {
-    //   float: none !important;
-    //   padding: 0;
-    //   width: auto;
-    // }
+    @media screen and (max-width: 600px) {
+      .column(12);
+    }
   }
 }
 
