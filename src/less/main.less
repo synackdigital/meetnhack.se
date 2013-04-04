@@ -2,9 +2,12 @@
 // Components
 // -------------------------
 @import "lesshat";
-@import "../../components/semantic-grid/stylesheets/less/grid";
 @import "tipsy";
 
+// Grid
+// -------------------------
+@import "../../components/semantic-grid/stylesheets/less/grid";
+@total-width: 100%;
 
 // Partials
 // -------------------------
@@ -108,7 +111,7 @@ section {
 }
 
 /*
- * Enabled positioning inside header
+ * Enable positioning inside header
  */
 header {
   position: relative;
@@ -123,8 +126,13 @@ header h1 {
 
   /* Set bg image */
   background-image: url('../img/mnhlogo.png');
+
+  /* Position in center */
+  position: absolute;
+  left: 50%;
   width: 374px;
   height: 132px;
+  margin-left: -187px;
 
   /* Small screens */
   @media screen and (max-width: 390px) {
@@ -141,48 +149,22 @@ header h1 {
       background-size: cover;
     }
   }
+
 }
 
 /*
  * Tagline
  */
 header h2 {
-  .baseFont();
+  padding-top: 150px; // make space for logo above
   margin-bottom: 0;
-}
 
-/*
- * "Arranged by"
- */
-header .arrangedby {
-  h2 {
-    padding: 0;
-    margin-bottom: @rhythmUnitFallback; // non-rem fallback
-    margin-bottom: @rhythmUnit;
-    .microFont();
-    font-weight: normal;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-  }
+  /* Push down above illustration */
+  position: relative;
+  top: (2 * @rhythmUnit);
 
-  ul {
-    .inline-list();
-    li {
-      margin-right: @rhythmUnitFallback; // non-rem fallback
-      margin-right: @rhythmUnit;
-      margin-bottom: @rhythmUnitFallback; // non-rem fallback
-      margin-bottom: @rhythmUnit;
-    }
-  }
-
-  /* Position top right on larger screens */
-  @media screen and (min-width: 719px) {
-    position: absolute;
-    top: 0;
-    right: 0;
-
-    max-width: 230px;
-  }
+  .baseFont();
+  text-align: center;
 }
 
 /*
@@ -235,31 +217,78 @@ header nav {
 }
 
 /*
+ * About text
+ */
+#about {
+  max-width: 50em;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/*
+ * Partners
+ */
+#partners {
+  max-width: 50em;
+  margin: (2 * @rhythmUnitFallback) auto; // non-rem fallback
+  margin: (2 * @rhythmUnit) auto;
+
+  text-align: center;
+
+  h2 {
+    padding: 0;
+    margin-bottom: (2 * @rhythmUnitFallback); // non-rem fallback
+    margin-bottom: (2 * @rhythmUnit);
+    .microFont();
+    font-weight: normal;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  ul {
+    .inline-list();
+    li {
+      margin-right: @rhythmUnitFallback; // non-rem fallback
+      margin-right: @rhythmUnit;
+      margin-bottom: @rhythmUnitFallback; // non-rem fallback
+      margin-bottom: @rhythmUnit;
+    }
+  }
+}
+
+/*
  * Float artwork inside main sections
  */
 .illustration {
-  float: right;
-  margin-top: 2 * @rhythmUnitFallback; // non-rem fallback
-  margin-top: 2 * @rhythmUnit;
-  margin-right: -2 * @rhythmUnitFallback; // non-rem fallback
-  margin-right: -2 * @rhythmUnit;
-  width: 50%;
+  .column(6);
 
-  @media screen and (max-width: 600px) {
-    float: none !important;
-    margin: 0;
-    width: auto;
+  /* Alternate layout for meet section */
+  #meet & {
+    float: right;
   }
+
+  // float: right;
+  // margin-top: 2 * @rhythmUnitFallback; // non-rem fallback
+  // margin-top: 2 * @rhythmUnit;
+  // margin-right: -2 * @rhythmUnitFallback; // non-rem fallback
+  // margin-right: -2 * @rhythmUnit;
+  // width: 50%;
+
+  // @media screen and (max-width: 600px) {
+  //   float: none !important;
+  //   margin: 0;
+  //   width: auto;
+  // }
 
   /* Alternate layout for hack section */
-  #hack & {
-    float: left;
-    margin-top: 4 * @rhythmUnitFallback; // non-rem fallback
-    margin-top: 4 * @rhythmUnit;
-    margin-left: -2 * @rhythmUnitFallback; // non-rem fallback
-    margin-left: -2 * @rhythmUnit;
-    margin-right: 0;
-  }
+  // #hack & {
+  //   float: left;
+  //   margin-top: 4 * @rhythmUnitFallback; // non-rem fallback
+  //   margin-top: 4 * @rhythmUnit;
+  //   margin-left: -2 * @rhythmUnitFallback; // non-rem fallback
+  //   margin-left: -2 * @rhythmUnit;
+  //   margin-right: 0;
+  // }
 }
 
 /*
@@ -269,32 +298,34 @@ header nav {
   .clearfix();
 
   .content {
-    box-sizing: border-box;
-    float: left;
-    padding-right: 2 * @rhythmUnit;
-    width: 50%;
+    .column(6);
+    // box-sizing: border-box;
+    // float: left;
+    // padding-right: 2 * @rhythmUnit;
+    // width: 50%;
 
-    @media screen and (max-width: 600px) {
-      float: none !important;
-      padding: 0;
-      width: auto;
-    }
+    // @media screen and (max-width: 600px) {
+    //   float: none !important;
+    //   padding: 0;
+    //   width: auto;
+    // }
   }
 }
 #hack {
   .clearfix();
 
   .content {
-    box-sizing: border-box;
-    float: right;
-    padding-left: 2 * @rhythmUnit;
-    width: 50%;
+    .column(6);
+    // box-sizing: border-box;
+    // float: right;
+    // padding-left: 2 * @rhythmUnit;
+    // width: 50%;
 
-    @media screen and (max-width: 600px) {
-      float: none !important;
-      padding: 0;
-      width: auto;
-    }
+    // @media screen and (max-width: 600px) {
+    //   float: none !important;
+    //   padding: 0;
+    //   width: auto;
+    // }
   }
 }
 
@@ -432,7 +463,8 @@ footer a {
 .logo-regionskane,
 .logo-regionblekinge,
 .logo-medea,
-.logo-parkinn  {
+.logo-parkinn,
+.logo-netport  {
   /* Hide text */
   .ir();
 }
@@ -504,8 +536,8 @@ footer a {
 .logo-regionskane {
   /* Set bg image */
   background-image: url('../img/logo-regionskane.png');
-  width: 94px;
-  height: 88px;
+  width: 71px;
+  height: 66px;
 
   /* High density image */
   @media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
@@ -544,5 +576,11 @@ footer a {
   /* Set bg image */
   background-image: url('../img/logo-parkinn.png');
   width: 150px;
-  height: 70px;
+  height: 65px;
+}
+.logo-netport {
+  /* Set bg image */
+  background-image: url('../img/logo-netport.png');
+  width: 116px;
+  height: 55px;
 }
