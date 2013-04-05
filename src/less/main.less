@@ -363,6 +363,22 @@ header nav {
     float: left;
     width: (100% / @numberOfPeople);
   }
+
+  /* Small screens */
+  @media screen and (max-width: 720px) {
+    li {
+      width: 33%;
+    }
+  }
+  @media screen and (max-width: 420px) {
+    li {
+      width: 50%;
+
+      &:nth-child(even) {
+        clear: left;
+      }
+    }
+  }
 }
 
 /*
