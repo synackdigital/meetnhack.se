@@ -447,7 +447,8 @@ footer a {
 .logo-regionblekinge,
 .logo-medea,
 .logo-parkinn,
-.logo-netport  {
+.logo-netport,
+.logo-tis  {
   /* Hide text */
   .ir();
 }
@@ -553,4 +554,17 @@ footer a {
   background-image: url('../img/logo-netport.png');
   width: 116px;
   height: 55px;
+}
+.logo-tis {
+  /* Set bg image */
+  background-image: url('../img/logo-tis.png');
+  width: 212px;
+  height: 44px;
+
+  /* High density image */
+  @media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
+    html.backgroundsize & {
+      background-image: url('../img/logo-tis_@2x.png');
+    }
+  }
 }
