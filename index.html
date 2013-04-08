@@ -19,6 +19,15 @@
   </head>
   <body>
 
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/sv_SE/all.js#xfbml=1&appId=205267246247085";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+
     <div id="wrapper">
 
       <header>
@@ -257,6 +266,10 @@
         <!-- <iframe  src="http://www.eventbrite.com/tickets-external?eid=6136114283&ref=etckt&v=2" frameborder="0" height="214" width="100%" vspace="0" hspace="0" marginheight="5" marginwidth="5" scrolling="auto" allowtransparency="true"></iframe> -->
 
       </section>
+
+      <footer>
+        <div class="fb-like" data-href="http://mediaevolution.se/meetnhack" data-send="false" data-width="320" data-show-faces="true" data-font="arial" data-action="recommend"></div>
+      </footer>
 
     </div>
 
