@@ -62,6 +62,19 @@ dd h4 {
 }
 
 /*
+ * Links
+ */
+a {
+  color: @linkColor;
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
+    color: spin(darken(@linkColor, 20%), 10deg);
+  }
+}
+
+/*
  * Body background and colors
  */
 body {
@@ -434,6 +447,12 @@ dl.schedule {
 footer {
   margin-top: (2 * @rhythmUnit);
   margin-bottom: (2 * @rhythmUnit);
+
+  /* Credit text */
+  .credit {
+    margin-top: (2 * @rhythmUnit);
+    .smallFont();
+  }
 }
 
 /*
