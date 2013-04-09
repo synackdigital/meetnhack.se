@@ -467,7 +467,8 @@ footer {
 .logo-medea,
 .logo-parkinn,
 .logo-netport,
-.logo-tis  {
+.logo-tis,
+.logo-hyperisland  {
   /* Hide text */
   .ir();
 }
@@ -584,6 +585,19 @@ footer {
   @media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
     html.backgroundsize & {
       background-image: url('../img/logo-tis_@2x.png');
+    }
+  }
+}
+.logo-hyperisland {
+  /* Set bg image */
+  background-image: url('../img/logo-hyperisland.png');
+  width: 177px;
+  height: 22px;
+
+  /* High density image */
+  @media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
+    html.backgroundsize & {
+      background-image: url('../img/logo-hyperisland_@2x.png');
     }
   }
 }
