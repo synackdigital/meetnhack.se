@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    $('#navigation').localScroll({
+    $('.anchor').localScroll({
       offset: -60
     });
     $('[data-toggle="tipsy"]').tipsy({
