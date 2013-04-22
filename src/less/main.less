@@ -468,7 +468,8 @@ footer {
 .logo-parkinn,
 .logo-netport,
 .logo-tis,
-.logo-hyperisland  {
+.logo-hyperisland,
+.logo-expertmaker  {
   /* Hide text */
   .ir();
 
@@ -622,6 +623,21 @@ footer {
   @media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
     html.backgroundsize & {
       background-image: url('../img/logo-hyperisland_@2x.png');
+    }
+  }
+}
+.logo-expertmaker {
+  /* Set bg image */
+  background-image: url('../img/logo-expertmaker.png');
+  width: 199px;
+  height: 33px;
+
+  top: -8px;
+
+  /* High density image */
+  @media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
+    html.backgroundsize & {
+      background-image: url('../img/logo-expertmaker_@2x.png');
     }
   }
 }
