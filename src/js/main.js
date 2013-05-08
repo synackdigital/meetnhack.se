@@ -5,7 +5,7 @@ $(document).ready(function () {
     $('[data-toggle="tipsy"]').tipsy({
       fade: true,
       gravity: 's',
-      delayIn: 200,
-      delayOut: 800
+      delayIn: 30,
+      delayOut: 30
     });
 });
