@@ -135,6 +135,6 @@ module.exports = function(grunt) {
   });
 
   // Default task
-  grunt.registerTask('default', ['copy', 'string-replace', 'concat', 'less:compile']);
-  grunt.registerTask('dist', ['default', 'less:compress', 'uglify']);
+  grunt.registerTask('default', ['copy', 'string-replace', 'concat', 'less']);
+  grunt.registerTask('dist', ['default', 'uglify']);
 };
